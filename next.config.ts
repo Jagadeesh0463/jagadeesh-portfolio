@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    optimizePackageImports: ["framer-motion"]
-  }
+  reactStrictMode: true
 };
 
 export default nextConfig;
