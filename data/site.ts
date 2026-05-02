@@ -1,138 +1,152 @@
-export const navigation = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Content", href: "#content" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" }
-];
-
-export const stats = [
-  { value: "8+", label: "Years building software with production rigor" },
-  { value: "3 Worlds", label: "Engineering, content, and AI ambition" },
-  { value: "1 Mindset", label: "Calm focus under pressure" }
-];
-
-export const skills = [
-  {
-    title: "AI / ML",
-    description: "Prompt systems, workflow thinking, data-driven experimentation, and rapid prototyping.",
-    level: 74
+export const site = {
+  owner: {
+    name: "S. Jagadeesh",
+    role: "Senior Software Engineer",
+    title: "Senior Software Engineer | Embedded Systems & AI Enthusiast",
+    tagline:
+      "Building intelligent systems—from embedded Bluetooth solutions to AI-powered applications.",
+    email: ""
   },
-  {
-    title: "Embedded Systems",
-    description: "Low-level engineering, device logic, performance tuning, and reliable hardware-software interaction.",
-    level: 92
+  navigation: [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Experience", href: "#experience" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" }
+  ],
+  hero: {
+    eyebrow: "Embedded Systems to AI Engineering",
+    primaryCta: { label: "View Projects", href: "#projects" },
+    secondaryCta: { label: "Contact Me", href: "#contact" },
+    highlights: [
+      "Bluetooth BR/EDR",
+      "LLMs & RAG",
+      "AI Agents",
+      "Freelance Ready"
+    ],
+    image: {
+      src: "/images/embedded-ai-hero.png",
+      alt: "Abstract embedded Bluetooth and AI engineering visual"
+    },
+    profileCopy:
+      "Embedded software depth, AI engineering momentum, and a practical builder mindset for product-focused teams."
   },
-  {
-    title: "Bluetooth Development",
-    description: "BLE architecture, connectivity flows, interoperability debugging, and production-grade communication paths.",
-    level: 95
+  about: {
+    kicker: "About",
+    title: "Embedded systems experience with a growing AI engineering direction.",
+    paragraphs: [
+      "I am a Senior Software Engineer with 3 years of experience in embedded systems, specializing in Bluetooth Classic technologies. My work focuses on developing and enhancing features related to Bluetooth BR/EDR audio and OBEX profiles, along with hands-on experience in protocol testing and PTS automation.",
+      "Beyond my core domain, I am actively transitioning into Artificial Intelligence. I am building strong foundations in Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), fine-tuning, and AI agents using n8n.",
+      "I enjoy continuous learning, building real-world solutions, and connecting with people. My long-term goal is to grow as an AI Engineer, explore cricket analytics, and build my own food product business."
+    ]
   },
-  {
-    title: "Software Engineering",
-    description: "Frontend polish, backend integration, scalable code structure, testing mindset, and systems thinking.",
-    level: 88
+  skills: {
+    kicker: "Skills",
+    title: "A practical skill set for embedded software, AI learning, and collaboration.",
+    categories: [
+      {
+        title: "Programming",
+        items: ["Python", "Embedded C"]
+      },
+      {
+        title: "Embedded Systems",
+        items: [
+          "Bluetooth BR/EDR",
+          "Audio Profiles",
+          "OBEX Profiles",
+          "PTS Testing",
+          "Ellisys Analysis"
+        ]
+      },
+      {
+        title: "AI & Automation",
+        items: ["LLM Basics", "RAG", "AI Agents", "n8n"]
+      },
+      {
+        title: "Tools",
+        items: ["GitHub", "Technical Documentation"]
+      },
+      {
+        title: "Soft Skills",
+        items: ["Communication", "Networking", "Problem Solving"]
+      }
+    ]
   },
-  {
-    title: "Automation",
-    description: "Workflow design, agentic tooling, repeatable operations, and productivity systems that compound over time.",
-    level: 84
+  experience: {
+    kicker: "Experience",
+    title: "Senior Software Engineer",
+    years: "3 Years",
+    responsibilities: [
+      "Worked on Bluetooth Classic (BR/EDR) features",
+      "Developed and supported audio & OBEX profiles",
+      "Performed protocol testing using PTS",
+      "Debugged issues using Ellisys analyzer",
+      "Contributed to system-level improvements"
+    ]
+  },
+  projects: {
+    kicker: "Projects",
+    title: "Current and future-ready work areas.",
+    items: [
+      {
+        title: "AI Agent Projects",
+        status: "In Progress",
+        description: "AI agents using LLMs and automation"
+      },
+      {
+        title: "Embedded Bluetooth Development",
+        description: "Work on Bluetooth Classic profiles and validation"
+      },
+      {
+        title: "Freelance Website Projects",
+        description: "AI-powered website development"
+      }
+    ]
+  },
+  social: {
+    kicker: "Social Links",
+    title: "Connect across professional and creator platforms.",
+    emptyMessage: "Social profiles will appear here after URLs are added.",
+    links: [
+      { label: "YouTube", href: "" },
+      { label: "LinkedIn", href: "" },
+      { label: "Instagram", href: "" },
+      { label: "Facebook", href: "" }
+    ]
+  },
+  contact: {
+    kicker: "Contact",
+    title: "Open to embedded, AI, freelance, and networking conversations.",
+    copy:
+      "Send a message for role opportunities, freelance projects, technical collaboration, or community connection.",
+    form: {
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      emailLabel: "Email",
+      emailPlaceholder: "you@example.com",
+      messageLabel: "Message",
+      messagePlaceholder: "Tell me about the opportunity or project.",
+      submitLabel: "Send Message",
+      pendingLabel: "Sending..."
+    },
+    messages: {
+      invalidEmail: "Please enter a valid email address.",
+      missingFields: "Please complete all fields before sending your message.",
+      deliveryNotConfigured:
+        "Contact service is not configured yet. Add RESEND_API_KEY and CONTACT_EMAIL to enable live email delivery.",
+      deliveryFailed:
+        "Message could not be delivered right now. Please try again shortly.",
+      networkError: "Network error. Please try again in a moment.",
+      genericError: "Something went wrong. Please try again.",
+      success: "Message sent successfully. Jagadeesh will get back to you soon."
+    }
+  },
+  footer: {
+    copyright: "All rights reserved.",
+    links: [
+      { label: "Projects", href: "#projects" },
+      { label: "Contact", href: "#contact" }
+    ]
   }
-];
-
-export const projects = [
-  {
-    title: "PulseLink BLE Intelligence",
-    description:
-      "A concept platform for monitoring Bluetooth device behavior, packet health, and connectivity patterns through elegant operational dashboards.",
-    stack: ["Next.js", "TypeScript", "BLE", "Telemetry"],
-    href: "#contact"
-  },
-  {
-    title: "RainFrame Creator Studio",
-    description:
-      "A calm-content production system built around rain ambience, cinematic storytelling, and repeatable YouTube publishing workflows.",
-    stack: ["Content Ops", "Automation", "Motion Design"],
-    href: "#content"
-  },
-  {
-    title: "VisionForge AI Workflows",
-    description:
-      "A forward-looking automation concept focused on AI-assisted research, creative generation, and decision support for digital businesses.",
-    stack: ["AI", "Automation", "UX Systems"],
-    href: "#services"
-  },
-  {
-    title: "Cloud Kitchen Strategy Lab",
-    description:
-      "A business thinking prototype for evaluating menu brands, delivery operations, and digital-first growth experiments in the food space.",
-    stack: ["Business", "Analytics", "Brand Strategy"],
-    href: "#interests"
-  }
-];
-
-export const videos = [
-  {
-    title: "Midnight Rain Ambience",
-    description: "Immersive soundscapes designed for deep focus, better sleep, and calm late-night recovery.",
-    embedUrl: "https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?rel=0"
-  },
-  {
-    title: "Windowside Storm Atmosphere",
-    description: "Long-form cinematic ambience inspired by quiet rooms, city lights, and reflective evenings.",
-    embedUrl: "https://www.youtube-nocookie.com/embed/4xDzrJKXOOY?rel=0"
-  }
-];
-
-export const interests = [
-  {
-    title: "Cricket",
-    emoji: "🏏",
-    description: "Competition, timing, instinct, and composure. Cricket keeps strategy grounded in rhythm."
-  },
-  {
-    title: "Chess",
-    emoji: "♟️",
-    description: "Calculated patience, pattern recognition, and positional thinking shape how I build and decide."
-  },
-  {
-    title: "Fitness",
-    emoji: "💪",
-    description: "Discipline in the gym translates into consistency, stamina, and long-term execution everywhere else."
-  },
-  {
-    title: "Business",
-    emoji: "💡",
-    description: "Cloud kitchen ideas, brand positioning, and revenue thinking keep creativity tied to real opportunity."
-  },
-  {
-    title: "Motivation",
-    emoji: "🎤",
-    description: "I care about helping people move, act, and believe bigger through grounded words and lived energy."
-  }
-];
-
-export const services = [
-  {
-    title: "AI Consulting",
-    description:
-      "Helping teams translate curiosity into practical AI systems, rapid experiments, and clear adoption paths."
-  },
-  {
-    title: "Automation Workflows",
-    description:
-      "Designing systems that reduce manual work, speed up delivery, and create compounding leverage for modern teams."
-  },
-  {
-    title: "Content Strategy",
-    description:
-      "Building creator ecosystems around storytelling, calm visual identity, and repeatable audience growth loops."
-  }
-];
-
-export const socialLinks = [
-  { label: "YouTube", href: "https://youtube.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "GitHub", href: "https://github.com" }
-];
+};

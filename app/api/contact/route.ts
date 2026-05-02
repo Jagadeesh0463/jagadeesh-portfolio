@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { site } from "@/data/site";
 
 type ContactPayload = {
   name?: string;
@@ -6,16 +7,39 @@ type ContactPayload = {
   message?: string;
 };
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function POST(request: Request) {
   const body = (await request.json()) as ContactPayload;
-  const { name, email, message } = body;
+  const name = String(body.name ?? "").trim();
+  const email = String(body.email ?? "").trim();
+  const message = String(body.message ?? "").trim();
 
   if (!name || !email || !message) {
     return NextResponse.json(
-      { error: "Please complete all fields before sending your message." },
+      { error: site.contact.messages.missingFields },
       { status: 400 }
     );
   }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json(
+      { error: site.contact.messages.invalidEmail },
+      { status: 400 }
+    );
+  }
+
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+  const subjectName = name.replace(/[\r\n]/g, " ");
 
   const resendApiKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL;
@@ -23,8 +47,7 @@ export async function POST(request: Request) {
   if (!resendApiKey || !contactEmail) {
     return NextResponse.json(
       {
-        error:
-          "Contact service is not configured yet. Add RESEND_API_KEY and CONTACT_EMAIL to enable live email delivery."
+        error: site.contact.messages.deliveryNotConfigured
       },
       { status: 503 }
     );
@@ -39,26 +62,26 @@ export async function POST(request: Request) {
     body: JSON.stringify({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: [contactEmail],
-      subject: `New portfolio message from ${name}`,
+      subject: `New portfolio message from ${subjectName}`,
       reply_to: email,
       html: `
         <h2>New Portfolio Message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br />")}</p>
+        <p>${safeMessage}</p>
       `
     })
   });
 
   if (!response.ok) {
     return NextResponse.json(
-      { error: "Message could not be delivered right now. Please try again shortly." },
+      { error: site.contact.messages.deliveryFailed },
       { status: 500 }
     );
   }
 
   return NextResponse.json({
-    success: "Message sent successfully. Jagadeesh will get back to you soon."
+    success: site.contact.messages.success
   });
 }

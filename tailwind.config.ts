@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        night: "#030712",
-        abyss: "#07111f",
-        mist: "#c9ddff",
-        neon: "#5eead4",
+        night: "#0f172a",
+        abyss: "#111827",
+        mist: "#e2e8f0",
+        neon: "#38bdf8",
         electric: "#38bdf8",
         steel: "#94a3b8"
       },

@@ -1,6 +1,6 @@
-# Jagadeesh Portfolio
+# S. Jagadeesh Portfolio
 
-A premium personal portfolio experience for Jagadeesh, designed with a dark cinematic aesthetic, subtle rain ambience, glassmorphism, smooth motion, and a strong personal-brand storytelling angle.
+A modern single-page portfolio for S. Jagadeesh, focused on embedded systems experience, the transition toward AI engineering, freelance readiness, and professional networking.
 
 Built with:
 
@@ -10,118 +10,50 @@ Built with:
 - Framer Motion
 - TypeScript
 
-## Overview
+## Sections
 
-This portfolio is designed to feel more like a personal brand experience than a basic resume website. It combines:
+- Sticky navbar with smooth scrolling
+- Hero
+- About
+- Skills
+- Experience
+- Projects
+- Social links
+- Contact
+- Footer
 
-- Apple-inspired visual restraint
-- Awwwards-style motion and atmosphere
-- Calm rain mood with deep blue and neon accents
-- Responsive, section-based storytelling
-- Clean reusable component structure
+## Content Editing
 
-The site includes:
+All portfolio content lives in `data/site.ts`.
 
-- Hero section with cinematic messaging and CTAs
-- Story-driven about section
-- Animated skills section
-- Premium project showcase
-- Content creator / YouTube embed section
-- Interests cards
-- Services section
-- Contact form with API route support
-- SEO metadata, robots, and sitemap
-
-## Project Structure
-
-```text
-app/
-  api/contact/route.ts
-  globals.css
-  layout.tsx
-  page.tsx
-  robots.ts
-  sitemap.ts
-
-components/
-  about-section.tsx
-  contact-form.tsx
-  contact-section.tsx
-  content-section.tsx
-  hero-section.tsx
-  interests-section.tsx
-  motion-reveal.tsx
-  navbar.tsx
-  page-shell.tsx
-  projects-section.tsx
-  rain-background.tsx
-  section-shell.tsx
-  services-section.tsx
-  skills-section.tsx
-
-data/
-  site.ts
-```
+Social links are intentionally empty by default. Add a URL to a social item in `data/site.ts` when it is ready to show publicly.
 
 ## Local Development
-
-Install dependencies and start the dev server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open:
+Open:
 
 ```text
 http://localhost:3000
 ```
 
-## Build for Production
+## Production Build
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Environment Variables
-
-Create a `.env.local` file if you want the contact form to send live email via Resend:
+## Optional Environment Variables
 
 ```bash
+NEXT_PUBLIC_SITE_URL=
 RESEND_API_KEY=your_resend_api_key
-CONTACT_EMAIL=your_email@example.com
+CONTACT_EMAIL=your_email
 ```
 
-If these are not set, the portfolio still works, but the contact endpoint will return a friendly configuration message instead of sending email.
-
-## Personalization Checklist
-
-Before launch, update these values:
-
-- Replace placeholder project, social, and YouTube links in `data/site.ts`
-- Replace `https://example.com` in `app/layout.tsx`
-- Replace `https://example.com` in `app/robots.ts`
-- Replace `https://example.com` in `app/sitemap.ts`
-- Update any text content in `data/site.ts` and section components to better match Jagadeesh's real story and work
-
-## Netlify Deployment
-
-This project can be deployed on Netlify.
-
-Recommended settings:
-
-- Build command: `npm run build`
-- Publish directory: `.next`
-
-If using the contact form in production, add these environment variables in Netlify:
-
-- `RESEND_API_KEY`
-- `CONTACT_EMAIL`
-
-## Notes
-
-- The current content includes polished placeholder portfolio copy designed to match the requested brand direction.
-- The contact form backend is ready for Resend-style delivery through the existing API route.
-- The local environment used during creation did not have `npm` installed, so dependency installation and final production verification were not run here.
+`NEXT_PUBLIC_SITE_URL` is used for sitemap, robots, and metadata URLs. `RESEND_API_KEY` and `CONTACT_EMAIL` enable live email delivery from the contact form.

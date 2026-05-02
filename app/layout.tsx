@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Sora } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 
 const sora = Sora({
@@ -7,40 +7,34 @@ const sora = Sora({
   variable: "--font-sans"
 });
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "500", "600", "700"]
-});
-
-const siteUrl = "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "Jagadeesh | Engineer, Creator, Builder",
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  title: "S. Jagadeesh | Embedded Systems & AI Enthusiast",
   description:
-    "Jagadeesh is an embedded Bluetooth senior software engineer, aspiring AI engineer, content creator, and storyteller building high-performance products and calming digital experiences.",
+    "Portfolio of S. Jagadeesh, a Senior Software Engineer with embedded Bluetooth experience and an active transition toward AI engineering.",
   keywords: [
-    "Jagadeesh portfolio",
+    "S. Jagadeesh portfolio",
     "Bluetooth engineer",
     "AI engineer",
-    "content creator",
     "embedded systems",
+    "Bluetooth BR/EDR",
     "Next.js portfolio"
   ],
   openGraph: {
-    title: "Jagadeesh | Engineer, Creator, Builder",
+    title: "S. Jagadeesh | Embedded Systems & AI Enthusiast",
     description:
-      "Engineer by profession. Creator by passion. A cinematic portfolio blending software, content, AI ambition, and calm design.",
+      "Senior Software Engineer specializing in embedded Bluetooth systems and building toward AI engineering.",
     url: siteUrl,
-    siteName: "Jagadeesh Portfolio",
+    siteName: "S. Jagadeesh Portfolio",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jagadeesh | Engineer, Creator, Builder",
+    title: "S. Jagadeesh | Embedded Systems & AI Enthusiast",
     description:
-      "Embedded Bluetooth engineer, creator, and aspiring AI builder with a calm cinematic portfolio experience."
+      "Embedded Bluetooth engineer transitioning toward AI engineering."
   }
 };
 
@@ -52,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${sora.variable} ${cormorant.variable} bg-night text-white antialiased`}
+        className={`${sora.variable} bg-night text-white antialiased`}
       >
         {children}
       </body>

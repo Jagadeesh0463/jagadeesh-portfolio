@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState, useTransition } from "react";
+import { site } from "@/data/site";
 
 type FormState = {
   status: "idle" | "success" | "error";
@@ -20,7 +21,16 @@ export function ContactForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const email = String(formData.get("email") ?? "");
     setState(initialState);
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setState({
+        status: "error",
+        message: site.contact.messages.invalidEmail
+      });
+      return;
+    }
 
     startTransition(async () => {
       try {
@@ -41,64 +51,64 @@ export function ContactForm() {
         if (!response.ok) {
           setState({
             status: "error",
-            message: result.error ?? "Something went wrong. Please try again."
+            message: result.error ?? site.contact.messages.genericError
           });
           return;
         }
 
         setState({
           status: "success",
-          message: result.success ?? "Message sent."
+          message: result.success ?? site.contact.messages.success
         });
         form.reset();
       } catch {
         setState({
           status: "error",
-          message: "Network error. Please try again in a moment."
+          message: site.contact.messages.networkError
         });
       }
     });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass-panel rounded-[2rem] p-6 sm:p-8">
+    <form onSubmit={handleSubmit} className="glass-panel rounded-lg p-6 sm:p-8">
       <div className="grid gap-5">
         <label className="grid gap-2 text-sm text-slate-300">
-          Name
+          {site.contact.form.nameLabel}
           <input
             required
             name="name"
             type="text"
-            placeholder="Your name"
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
+            placeholder={site.contact.form.namePlaceholder}
+            className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
           />
         </label>
         <label className="grid gap-2 text-sm text-slate-300">
-          Email
+          {site.contact.form.emailLabel}
           <input
             required
             name="email"
             type="email"
-            placeholder="you@example.com"
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
+            placeholder={site.contact.form.emailPlaceholder}
+            className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
           />
         </label>
         <label className="grid gap-2 text-sm text-slate-300">
-          Message
+          {site.contact.form.messageLabel}
           <textarea
             required
             name="message"
             rows={5}
-            placeholder="Tell me about your idea, role, or collaboration."
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
+            placeholder={site.contact.form.messagePlaceholder}
+            className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
           />
         </label>
         <button
           type="submit"
           disabled={isPending}
-          className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100 disabled:cursor-not-allowed disabled:opacity-70"
+          className="rounded-md bg-cyan-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {isPending ? "Sending..." : "Send Message"}
+          {isPending ? site.contact.form.pendingLabel : site.contact.form.submitLabel}
         </button>
         {state.message ? (
           <p
