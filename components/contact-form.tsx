@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState, useTransition } from "react";
+import { FormEvent, useState } from "react";
 import { site } from "@/data/site";
 
 type FormState = {
@@ -15,14 +15,23 @@ const initialState: FormState = {
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>(initialState);
-  const [isPending, startTransition] = useTransition();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "").trim();
     const email = String(formData.get("email") ?? "");
+    const message = String(formData.get("message") ?? "").trim();
     setState(initialState);
+
+    if (!name || !email || !message) {
+      setState({
+        status: "error",
+        message: site.contact.messages.missingFields
+      });
+      return;
+    }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setState({
@@ -32,41 +41,16 @@ export function ContactForm() {
       return;
     }
 
-    startTransition(async () => {
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            name: formData.get("name"),
-            email: formData.get("email"),
-            message: formData.get("message")
-          })
-        });
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
 
-        const result = (await response.json()) as { success?: string; error?: string };
+    window.location.href = `mailto:${site.owner.email}?subject=${subject}&body=${body}`;
 
-        if (!response.ok) {
-          setState({
-            status: "error",
-            message: result.error ?? site.contact.messages.genericError
-          });
-          return;
-        }
-
-        setState({
-          status: "success",
-          message: result.success ?? site.contact.messages.success
-        });
-        form.reset();
-      } catch {
-        setState({
-          status: "error",
-          message: site.contact.messages.networkError
-        });
-      }
+    setState({
+      status: "success",
+      message: site.contact.messages.success
     });
   };
 
@@ -105,10 +89,9 @@ export function ContactForm() {
         </label>
         <button
           type="submit"
-          disabled={isPending}
           className="rounded-md bg-cyan-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {isPending ? site.contact.form.pendingLabel : site.contact.form.submitLabel}
+          {site.contact.form.submitLabel}
         </button>
         {state.message ? (
           <p

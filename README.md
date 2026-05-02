@@ -52,8 +52,6 @@ npm run start
 
 ```bash
 NEXT_PUBLIC_SITE_URL=
-RESEND_API_KEY=your_resend_api_key
-CONTACT_EMAIL=your_email
 ```
 
-`NEXT_PUBLIC_SITE_URL` is used for sitemap, robots, and metadata URLs. `RESEND_API_KEY` and `CONTACT_EMAIL` enable live email delivery from the contact form.
+`NEXT_PUBLIC_SITE_URL` is used for sitemap, robots, and metadata URLs. The contact form uses a frontend `mailto:` link and does not need backend email configuration.

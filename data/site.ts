@@ -5,7 +5,7 @@ export const site = {
     title: "Senior Software Engineer | Embedded Systems & AI Enthusiast",
     tagline:
       "Building intelligent systems—from embedded Bluetooth solutions to AI-powered applications.",
-    email: ""
+    email: "jagadeeshs4779@gmail.com"
   },
   navigation: [
     { label: "Home", href: "#home" },
@@ -128,18 +128,12 @@ export const site = {
       messageLabel: "Message",
       messagePlaceholder: "Tell me about the opportunity or project.",
       submitLabel: "Send Message",
-      pendingLabel: "Sending..."
+      pendingLabel: "Opening Email..."
     },
     messages: {
       invalidEmail: "Please enter a valid email address.",
       missingFields: "Please complete all fields before sending your message.",
-      deliveryNotConfigured:
-        "Contact service is not configured yet. Add RESEND_API_KEY and CONTACT_EMAIL to enable live email delivery.",
-      deliveryFailed:
-        "Message could not be delivered right now. Please try again shortly.",
-      networkError: "Network error. Please try again in a moment.",
-      genericError: "Something went wrong. Please try again.",
-      success: "Message sent successfully. Jagadeesh will get back to you soon."
+      success: "Your email app is opening with the message filled in."
     }
   },
   footer: {
