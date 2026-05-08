@@ -45,6 +45,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="MtOYrTk5DVPNtpsB0sUc0Q0DZWWPs1cu_KXpbYbs8NM"
+        />
+      </head>
       <body
         className={`${sora.variable} bg-night text-white antialiased`}
       >
