@@ -1,6 +1,7 @@
 import { ContactForm } from "@/components/contact-form";
 import { MotionReveal } from "@/components/motion-reveal";
 import { SectionShell } from "@/components/section-shell";
+import { SocialIconLinks } from "@/components/social-icon-links";
 import { site } from "@/data/site";
 
 export function ContactSection() {
@@ -27,6 +28,7 @@ export function ContactSection() {
               {site.owner.email}
             </a>
           ) : null}
+          <SocialIconLinks variant="contact" />
         </MotionReveal>
         <MotionReveal delay={0.12}>
           <ContactForm />

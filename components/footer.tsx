@@ -1,3 +1,4 @@
+import { SocialIconLinks } from "@/components/social-icon-links";
 import { site } from "@/data/site";
 
 export function Footer() {
@@ -9,13 +10,20 @@ export function Footer() {
         <div>
           {site.owner.name} Copyright {year}. {site.footer.copyright}
         </div>
-        <nav className="flex gap-4">
-          {site.footer.links.map((link) => (
-            <a key={link.href} href={link.href} className="transition hover:text-white">
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="flex flex-wrap items-center gap-4">
+          <nav className="flex gap-4">
+            {site.footer.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="transition hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <SocialIconLinks variant="footer" />
+        </div>
       </div>
     </footer>
   );

@@ -110,8 +110,14 @@ export const site = {
     emptyMessage: "Social profiles will appear here after URLs are added.",
     links: [
       { label: "YouTube", href: "" },
-      { label: "LinkedIn", href: "" },
-      { label: "Instagram", href: "" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/s-jagadeesh-4937331a1/"
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/mr.innocent463"
+      },
       { label: "Facebook", href: "" }
     ]
   },

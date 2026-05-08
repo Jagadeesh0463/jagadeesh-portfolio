@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { SocialIconLinks } from "@/components/social-icon-links";
 import { site } from "@/data/site";
 
 export function HeroSection() {
@@ -62,6 +63,13 @@ export function HeroSection() {
             >
               {site.hero.secondaryCta.label}
             </a>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.42 }}
+          >
+            <SocialIconLinks variant="hero" />
           </motion.div>
         </div>
 
