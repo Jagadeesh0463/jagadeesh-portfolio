@@ -64,7 +64,7 @@ export function ContactForm() {
             name="name"
             type="text"
             placeholder={site.contact.form.namePlaceholder}
-            className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
+            className="rounded-md border border-white/10 bg-slate-950/35 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-cyan-300/[0.06] focus:shadow-[0_0_0_4px_rgba(56,189,248,0.08)]"
           />
         </label>
         <label className="grid gap-2 text-sm text-slate-300">
@@ -74,7 +74,7 @@ export function ContactForm() {
             name="email"
             type="email"
             placeholder={site.contact.form.emailPlaceholder}
-            className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
+            className="rounded-md border border-white/10 bg-slate-950/35 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-cyan-300/[0.06] focus:shadow-[0_0_0_4px_rgba(56,189,248,0.08)]"
           />
         </label>
         <label className="grid gap-2 text-sm text-slate-300">
@@ -84,12 +84,12 @@ export function ContactForm() {
             name="message"
             rows={5}
             placeholder={site.contact.form.messagePlaceholder}
-            className="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40 focus:bg-white/[0.08]"
+            className="rounded-md border border-white/10 bg-slate-950/35 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-cyan-300/[0.06] focus:shadow-[0_0_0_4px_rgba(56,189,248,0.08)]"
           />
         </label>
         <button
           type="submit"
-          className="rounded-md bg-cyan-400 px-6 py-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70"
+          className="rounded-md bg-cyan-400 px-6 py-4 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-400/15 transition hover:-translate-y-1 hover:bg-cyan-300 hover:shadow-cyan-300/25"
         >
           {site.contact.form.submitLabel}
         </button>

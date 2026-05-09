@@ -1,8 +1,7 @@
 import { MotionReveal } from "@/components/motion-reveal";
 import { SectionShell } from "@/components/section-shell";
+import { SocialIconLinks } from "@/components/social-icon-links";
 import { site } from "@/data/site";
-
-const activeLinks = site.social.links.filter((link) => link.href);
 
 export function SocialLinksSection() {
   return (
@@ -12,25 +11,12 @@ export function SocialLinksSection() {
       title={site.social.title}
     >
       <MotionReveal className="glass-panel rounded-lg p-6 sm:p-8">
-        {activeLinks.length > 0 ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {activeLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-md border border-white/10 bg-white/[0.04] px-5 py-4 text-sm font-medium text-slate-200 transition hover:border-cyan-300/40 hover:bg-cyan-400/10"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm leading-7 text-slate-400">
-            {site.social.emptyMessage}
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-xl text-sm leading-7 text-slate-400">
+            Professional updates, AI build notes, and creator-side experiments.
           </p>
-        )}
+          <SocialIconLinks variant="footer" />
+        </div>
       </MotionReveal>
     </SectionShell>
   );

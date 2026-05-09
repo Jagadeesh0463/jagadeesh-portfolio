@@ -1,4 +1,4 @@
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { site } from "@/data/site";
 
 type SocialIconLinksProps = {

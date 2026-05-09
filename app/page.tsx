@@ -3,8 +3,10 @@ import { ContactSection } from "@/components/contact-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
+import { MetricStrip } from "@/components/metric-strip";
 import { Navbar } from "@/components/navbar";
 import { PageShell } from "@/components/page-shell";
+import { ProofSection } from "@/components/proof-section";
 import { ProjectsSection } from "@/components/projects-section";
 import { SkillsSection } from "@/components/skills-section";
 import { SocialLinksSection } from "@/components/social-links-section";
@@ -15,10 +17,12 @@ export default function Home() {
       <Navbar />
       <main className="relative z-10">
         <HeroSection />
+        <MetricStrip />
         <AboutSection />
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />
+        <ProofSection />
         <SocialLinksSection />
         <ContactSection />
       </main>

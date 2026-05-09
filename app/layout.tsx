@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const sora = Sora({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans"
 });
@@ -52,7 +52,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sora.variable} bg-night text-white antialiased`}
+        className={`${inter.variable} bg-night text-white antialiased`}
       >
         {children}
       </body>
