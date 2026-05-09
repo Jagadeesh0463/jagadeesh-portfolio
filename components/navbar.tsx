@@ -12,7 +12,7 @@ export function Navbar() {
   useEffect(() => {
     const sections = site.navigation
       .map((item) => document.querySelector(item.href))
-      .filter(Boolean);
+      .filter((section): section is Element => section !== null);
 
     const observer = new IntersectionObserver(
       (entries) => {
